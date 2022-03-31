@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EMS-Android-App</string>
+    <string name="landingPageSubtitle">Εθνικό Κέντρο Άμεσης Βοήθειας</string>
+    <string name="landingPageTitle">E.K.A.B.</string>
+    <string name="loginButtonString">Σύνδεση μέσω</string>
+    <string name="loginButtonText">Σύνδεση μέσω Taxisnet</string>
+</resources>
