@@ -1,3 +1,5 @@
+package ihuiee.webservices.Crawler;
+
 import java.util.HashMap;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,14 +25,6 @@ public class Crawler {
 		getHospitalsFromCity();
 	}
 	
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	
 	public HashMap<String, ArrayList<String>> getAvailableClinics() {
 		return availableClinics;
 	}
@@ -45,27 +39,32 @@ public class Crawler {
 	
 	private void getHospitalsFromCity() {
 		Elements citiesUrls = doc.select("div.PoplularRegions ul li a");
-		
-		if (city.equals("thessalonikh"))
-			initialConnection("https://www.vrisko.gr/efimeries-nosokomeion/thessalonikh/oles-oi-efimeries-nosokomeion");
-		else if (city.equals("athina")) {
-			initialConnection("https://www.vrisko.gr/efimeries-nosokomeion/athina/oles-oi-efimeries-nosokomeion");
-		} else if (city.equals("patra"))
-			initialConnection("https://www.vrisko.gr/efimeries-nosokomeion/patra/oles-oi-efimeries-nosokomeion");
-		else
-			for (Element ele : citiesUrls) {
-				if (ele.attr("id").equals(city))
-					initialConnection(ele.attr("href"));
-			}
+
+		switch (city) {
+			case "thessalonikh":
+				initialConnection("https://www.vrisko.gr/efimeries-nosokomeion/thessalonikh/oles-oi-efimeries-nosokomeion");
+				break;
+			case "athina":
+				initialConnection("https://www.vrisko.gr/efimeries-nosokomeion/athina/oles-oi-efimeries-nosokomeion");
+				break;
+			case "patra":
+				initialConnection("https://www.vrisko.gr/efimeries-nosokomeion/patra/oles-oi-efimeries-nosokomeion");
+				break;
+			default:
+				for (Element ele : citiesUrls) {
+					if (ele.attr("id").equals(city))
+						initialConnection(ele.attr("href"));
+				}
+				break;
+		}
 		
 		Elements clinicsResult = doc.select("section.ClinicsResult");
 		
 		for (Element clir : clinicsResult) {
 			ArrayList<String> clList = new ArrayList<String>();
-			for (String clinic : Arrays.asList(clir.select("div.clinicsParts span").text().split(", "))) {
+			for (String clinic : clir.select("div.clinicsParts span").text().split(", ")) {
 				if(clinic.contains(" "))
-					for (String tempClinics : Arrays.asList(clinic.split(" ")))
-						clList.add(tempClinics);
+					clList.addAll(Arrays.asList(clinic.split(" ")));
 				else
 					clList.add(clinic);
 			}
