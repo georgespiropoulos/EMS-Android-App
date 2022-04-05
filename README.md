@@ -19,6 +19,13 @@ Description of the database
 |  |hospital_clinics|varchar()|
 |  |hospital_address|varchar()|
 
+## Firebase DB Schema
+Description of the remote database using Firebase
+
+There will one collection that will hold the date of the call and inside of document 
+that lists the data from the call (name, date of birth, the exact time of the call, etc.)
+also there will be an idenification number (unique) in order to identify one call.
+
 ## Crawler
 Description of the crawler
 
@@ -27,3 +34,4 @@ By creating a Crawler object you can access the method `getAvailableClinics()` t
 - Sample :
 `{Οφθαλμιατρείο Αθηνών=[Οφθαλμολογική, Ελ. Βενιζέλου 26, ΑΘΗΝΑ], 
 Αλεξάνδρα - Περιφερειακό Γενικό Νοσοκομείο Αθηνών=[Μαιευτική, Βασ. Σοφίας 80, Αμπελόκηποι, ΑΘΗΝΑ]`
+
