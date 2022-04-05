@@ -15,7 +15,7 @@
         android:fontFamily="@font/roboto_bold"
         android:text="@string/landingPageTitle"
         android:textAlignment="center"
-        android:textColor="#0D0CB5"
+        android:textColor="@color/blue"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
         android:layout_height="29dp"
         android:fontFamily="@font/roboto"
         android:text="@string/landingPageSubtitle"
-        android:textColor="#0D0CB5"
+        android:textColor="@color/blue"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,10 +37,10 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/loadingGif"
-        android:layout_width="246dp"
-        android:layout_height="164dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/ambulance"
+        android:layout_width="154dp"
+        android:layout_height="103dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/ambulance_gif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

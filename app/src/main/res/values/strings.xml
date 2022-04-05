@@ -7,4 +7,14 @@
     <string name="thankText">Ευχαριστούμε!</string>
     <string name="ambulanceOnWay">Το ασθενοφόρο\nείναι καθοδόν.</string>
     <string name="ambulance_icon_description">Ambulance Icon</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="horizontal_line">horizontal_line</string>
+    <string name="string_horizontal_line">horizontal line</string>
+    <string name="onDuty_text">Εφημερεύοντα Νοσοκομεία</string>
+    <string name="onDuty_sub">σε</string>
+    <string name="cityNamePlaceholder">X</string>
+    <string name="hospitalName0">ΠΑΝΕΠΙΣΤΗΜΙΑΚΟ ΓΕΝΙΚΟ ΝΟΣΟΚΟΜΕΙΟ ΘΕΣΣΑΛΟΝΙΚΗΣ - ΑΧΕΠΑ</string>
+    <string name="hospitalClinics0">Αγγειοχειρουργική, Αιμοδυναμική, Γναθοχειρουργική, Θωρακοχειρουργική, Καρδιολογική, Καρδιοχειρουργική, Νευρολογική, Νευροχειρουργική, Ορθοπαιδική, Παθολογική, Παιδοψυχιατρική, Πλαστική Χειρουργική, Πνευμονολογική, Χειρουργική, Ψυχιατρική, ΩΡΛ</string>
+    <string name="emergency_button_desc">emergency</string>
+    <string name="map_navigation_description">map navigation</string>
 </resources>
