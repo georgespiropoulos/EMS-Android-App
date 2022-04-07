@@ -15,7 +15,7 @@
         android:fontFamily="@font/roboto_bold"
         android:text="@string/ambulanceOnWay"
         android:textAlignment="center"
-        android:textColor="#0D0CB5"
+        android:textColor="@color/blue"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
