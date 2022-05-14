@@ -73,23 +73,20 @@
         android:layout_height="64dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/circle_button"
+        android:contentDescription="@string/emergency_button_desc"
         android:src="@drawable/ambulance_white"
         app:layout_constraintBottom_toTopOf="@+id/bottomLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/emergency_button_desc" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="ihuiee.webservices.ems_android_app.HospitalList"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/emergencyButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onDutyCity"
-        tools:layout="@layout/fragment_hospital_list" />
+        app:layout_constraintTop_toBottomOf="@+id/onDutyCity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
