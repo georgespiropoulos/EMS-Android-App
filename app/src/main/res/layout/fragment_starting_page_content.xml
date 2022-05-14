@@ -73,11 +73,11 @@
         android:layout_height="64dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/circle_button"
+        android:contentDescription="@string/emergency_button_desc"
         android:src="@drawable/ambulance_white"
         app:layout_constraintBottom_toTopOf="@+id/bottomLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/emergency_button_desc" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hospitalList"
