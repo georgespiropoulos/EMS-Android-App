@@ -15,8 +15,9 @@
         <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/ambulance_on_way.xml" value="0.36666666666666664" />
         <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/content_main.xml" value="0.125" />
+        <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/emergency_questions_page.xml" value="0.35260416666666666" />
         <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/fragment_auth_login.xml" value="0.36666666666666664" />
-        <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/fragment_emergency_questions.xml" value="0.22" />
+        <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/fragment_emergency_questions.xml" value="0.25" />
         <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/fragment_header.xml" value="0.36666666666666664" />
         <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/fragment_hospital_list.xml" value="0.36666666666666664" />
         <entry key="..\:/MyFiles/University/Web Services/EMSAndroidApp/app/src/main/res/layout/fragment_login_page.xml" value="0.36666666666666664" />
