@@ -26,4 +26,17 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="perissotera">Περισσότερα</string>
+    <string name="answer5number">5</string>
+    <string name="question1">Τι έχει συμβεί;</string>
+    <string name="troxaio">Τροχαίο</string>
+    <string name="answer1number">1</string>
+    <string name="ptosi">Πτώση</string>
+    <string name="answer2number">2</string>
+    <string name="egkimosini">Εγκυμοσύνη</string>
+    <string name="answer3number">3</string>
+    <string name="answer4number">4</string>
+    <string name="akrotiriasmos">Ακροτηριασμός</string>
+    <string name="back_button">back button</string>
+    <string name="mic_button">mic button</string>
 </resources>
