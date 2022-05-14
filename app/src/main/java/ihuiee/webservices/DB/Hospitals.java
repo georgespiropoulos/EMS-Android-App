@@ -1,12 +1,10 @@
 package ihuiee.webservices.DB;
 
-import androidx.annotation.NonNull;
 import androidx.room.*;
 
-@Entity(tableName = "hospitals")
+@Entity(tableName = "hospitals", primaryKeys = {"name_hospital"})
 public class Hospitals {
-    @PrimaryKey
-    @ColumnInfo(name = "name_hospital") @NonNull
+    @ColumnInfo(name = "name_hospital")
     public String nameOfHospital;
 
     @ColumnInfo(name = "clinics")
@@ -14,4 +12,10 @@ public class Hospitals {
 
     @ColumnInfo(name = "address")
     public String hospitalAddress;
+
+    public Hospitals(String nameOfHospital, String clinicsOfHospital, String hospitalAddress) {
+        this.nameOfHospital = nameOfHospital;
+        this.clinicsOfHospital = clinicsOfHospital;
+        this.hospitalAddress = hospitalAddress;
+    }
 }

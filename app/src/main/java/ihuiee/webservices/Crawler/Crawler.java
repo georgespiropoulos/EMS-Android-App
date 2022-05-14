@@ -1,25 +1,32 @@
 package ihuiee.webservices.Crawler;
 
+import android.content.Context;
+
+import androidx.room.RoomDatabase;
+
 import java.util.HashMap;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import ihuiee.webservices.DB.AppDatabase;
+import ihuiee.webservices.DB.Hospitals;
+
 public class Crawler {
-	private String url;
+	private String url = "https://www.vrisko.gr/efimeries-nosokomeion";
 	private String city;
 	private Document doc;
 	private HashMap<String, ArrayList<String>> availableClinics;
 	
-	public Crawler (String url, String city) {
-		this.url = url;
+	public Crawler (String city) {
 		this.city = city;
-		this.availableClinics = new HashMap<String, ArrayList<String>>();
+		this.availableClinics = new HashMap<>();
 		
 		initialConnection(url);
 		getHospitalsFromCity();
@@ -61,7 +68,7 @@ public class Crawler {
 		Elements clinicsResult = doc.select("section.ClinicsResult");
 		
 		for (Element clir : clinicsResult) {
-			ArrayList<String> clList = new ArrayList<String>();
+			ArrayList<String> clList = new ArrayList<>();
 			for (String clinic : clir.select("div.clinicsParts span").text().split(", ")) {
 				if(clinic.contains(" "))
 					clList.addAll(Arrays.asList(clinic.split(" ")));
@@ -71,6 +78,15 @@ public class Crawler {
 			
 			clList.add(clir.select("span.ClinicAdr").text());
 			availableClinics.put(clir.select("h2.ClinicDescr").text(), clList);
+		}
+	}
+
+	public void fillDB(Context context) {
+		for (String name : availableClinics.keySet().toArray(new String[0])) {
+			Hospitals hospital = new Hospitals(name,
+					Objects.requireNonNull(availableClinics.get(name)).get(0),
+					Objects.requireNonNull(availableClinics.get(name)).get(1));
+			AppDatabase.getInstance(context).hospitalsDao().insertAll(hospital);
 		}
 	}
 }
