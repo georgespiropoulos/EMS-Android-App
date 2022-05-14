@@ -2,7 +2,7 @@ package ihuiee.webservices.DB;
 
 import androidx.room.*;
 
-@Entity(tableName = "users")
+@Entity(tableName = "users", primaryKeys = {"user_id"})
 public class User {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "user_id")
