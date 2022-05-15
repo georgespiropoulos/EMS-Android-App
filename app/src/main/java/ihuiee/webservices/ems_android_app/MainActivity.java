@@ -3,16 +3,13 @@ package ihuiee.webservices.ems_android_app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import ihuiee.webservices.Crawler.Crawler;
 import ihuiee.webservices.DB.AppDatabase;
 import ihuiee.webservices.DB.Hospitals;
