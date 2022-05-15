@@ -8,13 +8,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class HospitalsAdapter extends RecyclerView.Adapter<HospitalsAdapter.ViewHolder> {
 
-    private String[] hospitalClinics;
-    private String[] hospitalNames;
+    private List<String> hospitalClinics;
+    private List<String> hospitalNames;
     private Context context;
 
-    public HospitalsAdapter(String[] hospitalClinics, String[] hospitalNames, Context context) {
+    public HospitalsAdapter(List<String> hospitalClinics, List<String> hospitalNames, Context context) {
         this.hospitalClinics = hospitalClinics;
         this.hospitalNames = hospitalNames;
         this.context = context;
@@ -31,13 +33,13 @@ public class HospitalsAdapter extends RecyclerView.Adapter<HospitalsAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.hospitalName.setText(hospitalNames[position]);
-        holder.hospitalClinics.setText(hospitalClinics[position]);
+        holder.hospitalName.setText(hospitalNames.get(position));
+        holder.hospitalClinics.setText(hospitalClinics.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return hospitalNames.length;
+        return hospitalNames.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

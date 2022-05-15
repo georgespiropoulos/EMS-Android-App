@@ -11,14 +11,18 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import ihuiee.webservices.Crawler.Crawler;
+import ihuiee.webservices.DB.AppDatabase;
+import ihuiee.webservices.DB.Hospitals;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] hospitalClinics;
-    private String[] hospitalNames;
+    private List<String> hospitalClinics = new ArrayList<>();
+    private List<String> hospitalNames = new ArrayList<>();
     private HospitalsAdapter adapter;
+    private List<Hospitals> hospitalsFromDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +35,15 @@ public class MainActivity extends AppCompatActivity {
         Content content = new Content();
         content.execute();
 
-        //adapter = new HospitalsAdapter(hospitalClinics, hospitalNames, this);
+        hospitalsFromDB = AppDatabase.getInstance(getApplicationContext()).hospitalsDao().getAll();
 
-        //rc.setAdapter(adapter);
+        for (int i = 0; i < hospitalsFromDB.size(); i++) {
+           hospitalNames.add(hospitalsFromDB.get(i).nameOfHospital);
+           hospitalClinics.add(hospitalsFromDB.get(i).clinicsOfHospital);
+        }
+
+        adapter = new HospitalsAdapter(hospitalClinics, hospitalNames, this);
+        rc.setAdapter(adapter);
     }
 
     @SuppressLint("StaticFieldLeak")
