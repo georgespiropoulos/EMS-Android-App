@@ -1,21 +1,24 @@
 package ihuiee.webservices.ems_android_app;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
-import ihuiee.webservices.Crawler.Crawler;
 
 public class HospitalsAdapter extends RecyclerView.Adapter<HospitalsAdapter.ViewHolder> {
 
-    Crawler cwr = new Crawler("thessalonikh");
-    HashMap<String, ArrayList<String>> hospitalMap = cwr.getAvailableClinics();
-    String[] keyList = hospitalMap.keySet().toArray(new String[0]); // new String[hospitalMap.size()]
+    private String[] hospitalClinics;
+    private String[] hospitalNames;
+    private Context context;
+
+    public HospitalsAdapter(String[] hospitalClinics, String[] hospitalNames, Context context) {
+        this.hospitalClinics = hospitalClinics;
+        this.hospitalNames = hospitalNames;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -28,22 +31,21 @@ public class HospitalsAdapter extends RecyclerView.Adapter<HospitalsAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.hostpitalName.setText(keyList[position]);
-        holder.hospitalClinics.setText(Objects.requireNonNull(hospitalMap.get(keyList[position])).get(0));
-        hospitalMap.get(keyList[position]);
+        holder.hospitalName.setText(hospitalNames[position]);
+        holder.hospitalClinics.setText(hospitalClinics[position]);
     }
 
     @Override
     public int getItemCount() {
-        return hospitalMap.size();
+        return hospitalNames.length;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView hostpitalName;
+        TextView hospitalName;
         TextView hospitalClinics;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            hostpitalName = itemView.findViewById(R.id.hospital0);
+            hospitalName = itemView.findViewById(R.id.hospital0);
             hospitalClinics = itemView.findViewById(R.id.hospitalClinics0);
         }
     }

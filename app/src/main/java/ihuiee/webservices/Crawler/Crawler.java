@@ -1,41 +1,36 @@
 package ihuiee.webservices.Crawler;
 
 import android.content.Context;
-
-import androidx.room.RoomDatabase;
-
-import java.util.HashMap;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 
 import ihuiee.webservices.DB.AppDatabase;
 import ihuiee.webservices.DB.Hospitals;
 
 public class Crawler {
-	private String url = "https://www.vrisko.gr/efimeries-nosokomeion";
+	private String url = "https://www.xo.gr/efimerevonta-nosokomeia/";
 	private String city;
 	private Document doc;
 	private HashMap<String, ArrayList<String>> availableClinics;
-	
+
 	public Crawler (String city) {
 		this.city = city;
 		this.availableClinics = new HashMap<>();
-		
+
 		initialConnection(url);
 		getHospitalsFromCity();
 	}
-	
+
 	public HashMap<String, ArrayList<String>> getAvailableClinics() {
 		return availableClinics;
 	}
-	
+
 	private void initialConnection(String url) {
 		try {
 			doc = Jsoup.connect(url).get();
@@ -43,41 +38,36 @@ public class Crawler {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	private void getHospitalsFromCity() {
-		Elements citiesUrls = doc.select("div.PoplularRegions ul li a");
+		Elements citiesUrls = doc.select("ul.pharmacyCity");
 
 		switch (city) {
-			case "thessalonikh":
-				initialConnection("https://www.vrisko.gr/efimeries-nosokomeion/thessalonikh/oles-oi-efimeries-nosokomeion");
+			case "Θεσσαλονίκη":
+				initialConnection("https://www.xo.gr/efimerevonta-nosokomeia/thessaloniki/");
 				break;
-			case "athina":
-				initialConnection("https://www.vrisko.gr/efimeries-nosokomeion/athina/oles-oi-efimeries-nosokomeion");
+			case "Αθήνα":
+				initialConnection("https://www.xo.gr/efimerevonta-nosokomeia/athina/");
 				break;
-			case "patra":
-				initialConnection("https://www.vrisko.gr/efimeries-nosokomeion/patra/oles-oi-efimeries-nosokomeion");
+			case "Πάτρα":
+				initialConnection("https://www.xo.gr/efimerevonta-nosokomeia/nomos-patra/");
 				break;
 			default:
 				for (Element ele : citiesUrls) {
-					if (ele.attr("id").equals(city))
+					if (ele.attr("a").equals(city))
 						initialConnection(ele.attr("href"));
 				}
 				break;
 		}
-		
-		Elements clinicsResult = doc.select("section.ClinicsResult");
-		
+
+		Elements clinicsResult = doc.select("div.basicInfo");
 		for (Element clir : clinicsResult) {
 			ArrayList<String> clList = new ArrayList<>();
-			for (String clinic : clir.select("div.clinicsParts span").text().split(", ")) {
-				if(clinic.contains(" "))
-					clList.addAll(Arrays.asList(clinic.split(" ")));
-				else
-					clList.add(clinic);
-			}
-			
-			clList.add(clir.select("span.ClinicAdr").text());
-			availableClinics.put(clir.select("h2.ClinicDescr").text(), clList);
+			//System.out.println(clir.select("span.clinic").text());
+			clList.add(clir.select("span.clinic").text());
+
+			clList.add(clir.select("span.addressProfile span").text());
+			availableClinics.put(clir.select("div.listingBusinessNameArea span").text(), clList);
 		}
 	}
 
