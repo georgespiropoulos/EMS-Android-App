@@ -1,8 +1,11 @@
 package ihuiee.webservices.DB;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
+import androidx.annotation.NonNull;
 import androidx.room.*;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(entities = {Hospitals.class, User.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
@@ -22,4 +25,5 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDAO userDao();
 
     public abstract HospitalsDAO hospitalsDao();
+
 }

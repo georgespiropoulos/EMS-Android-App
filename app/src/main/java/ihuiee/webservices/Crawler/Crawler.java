@@ -1,6 +1,8 @@
 package ihuiee.webservices.Crawler;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteException;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -63,20 +65,23 @@ public class Crawler {
 		Elements clinicsResult = doc.select("div.basicInfo");
 		for (Element clir : clinicsResult) {
 			ArrayList<String> clList = new ArrayList<>();
-			//System.out.println(clir.select("span.clinic").text());
 			clList.add(clir.select("span.clinic").text());
 
-			clList.add(clir.select("span.addressProfile span").text());
-			availableClinics.put(clir.select("div.listingBusinessNameArea span").text(), clList);
+			clList.add(clir.select("span.addressProfile span").text().split(" 546")[0]);
+			availableClinics.put(clir.select("div.listingBusinessNameArea span").text().split("-")[1], clList);
 		}
 	}
 
 	public void fillDB(Context context) {
-		for (String name : availableClinics.keySet().toArray(new String[0])) {
-			Hospitals hospital = new Hospitals(name,
-					Objects.requireNonNull(availableClinics.get(name)).get(0),
-					Objects.requireNonNull(availableClinics.get(name)).get(1));
-			AppDatabase.getInstance(context).hospitalsDao().insertAll(hospital);
+		try {
+			for (String name : availableClinics.keySet().toArray(new String[0])) {
+				Hospitals hospital = new Hospitals(name,
+						Objects.requireNonNull(availableClinics.get(name)).get(0),
+						Objects.requireNonNull(availableClinics.get(name)).get(1));
+				AppDatabase.getInstance(context).hospitalsDao().insertAll(hospital);
+			}
+		} catch (SQLiteException e) {
+			System.err.println("There's already a key value : " + e);
 		}
 	}
 }

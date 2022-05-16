@@ -8,18 +8,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import ihuiee.webservices.DB.AppDatabase;
+import ihuiee.webservices.DB.Hospitals;
 
 public class HospitalsAdapter extends RecyclerView.Adapter<HospitalsAdapter.ViewHolder> {
 
-    private List<String> hospitalClinics;
-    private List<String> hospitalNames;
+    private List<Hospitals> hospitals;
     private Context context;
 
-    public HospitalsAdapter(List<String> hospitalClinics, List<String> hospitalNames, Context context) {
-        this.hospitalClinics = hospitalClinics;
-        this.hospitalNames = hospitalNames;
+    public HospitalsAdapter(List<Hospitals> hospitals, Context context) {
         this.context = context;
+        this.hospitals = hospitals;
     }
 
     @NonNull
@@ -33,13 +35,29 @@ public class HospitalsAdapter extends RecyclerView.Adapter<HospitalsAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.hospitalName.setText(hospitalNames.get(position));
-        holder.hospitalClinics.setText(hospitalClinics.get(position));
+        holder.hospitalName.setText(hospitals.get(position).nameOfHospital);
+        holder.hospitalClinics.setText(hospitals.get(position).clinicsOfHospital);
+
+        holder.itemView.findViewById(R.id.hospital_card).setOnClickListener(view -> {
+            switch (holder.hospitalName.getVisibility()) {
+
+                case View.GONE:
+                    break;
+                case View.INVISIBLE:
+                    holder.hospitalName.setVisibility(View.VISIBLE);
+                    holder.hospitalClinics.setVisibility(View.INVISIBLE);
+                    break;
+                case View.VISIBLE:
+                    holder.hospitalName.setVisibility(View.INVISIBLE);
+                    holder.hospitalClinics.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return hospitalNames.size();
+        return hospitals.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
