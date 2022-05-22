@@ -15,58 +15,51 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.ArrayList;
 
-public class EmergencyQuestions extends Fragment {
+public class EmergencyQuestion3 extends Fragment {
 
     Button A1;
     Button A2;
     Button A3;
     Button A4;
-    Button A5;
     ImageButton backBtn;
-    ImageButton confirmSituation;
-    EditText anotherSituation;
     TextView tvAnswers;
     String anw1;
     Bundle bundle = new Bundle();
-    ArrayList<String> call = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_emergency_questions, container, false);
+        return inflater.inflate(R.layout.fragment_emergency_question3, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        assert getArguments() != null;
+        ArrayList<String> call = getArguments().getStringArrayList("call");
         FragmentManager manager = getParentFragmentManager();
 
         A1 = view.findViewById(R.id.answer_1);
         A2 = view.findViewById(R.id.answer_2);
         A3 = view.findViewById(R.id.answer_3);
         A4 = view.findViewById(R.id.answer_4);
-        A5 = view.findViewById(R.id.answer_5);
-        anotherSituation = view.findViewById(R.id.another_situation);
         backBtn = view.findViewById(R.id.back_btn);
-        confirmSituation = view.findViewById(R.id.confirm_situation);
 
         A1.setOnClickListener(v -> {
             tvAnswers = view.findViewById(R.id.q1a1);
             anw1 = tvAnswers.getText().toString();
 
             call.add(anw1);
-            bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
-            Fragment question3 = new EmergencyQuestion3();
-            question3.setArguments(bundle);
+            Fragment question4 = new EmergencyQuestion4();
+            question4.setArguments(bundle);
             manager.beginTransaction()
-                    .replace(R.id.fragment_container, question3)
+                    .replace(R.id.fragment_container, question4)
                     .commit();
         });
         A2.setOnClickListener(v -> {
@@ -74,12 +67,12 @@ public class EmergencyQuestions extends Fragment {
             anw1 = tvAnswers.getText().toString();
 
             call.add(anw1);
-            bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
-            Fragment question3 = new EmergencyQuestion3();
-            question3.setArguments(bundle);
+            Fragment question4 = new EmergencyQuestion4();
+            question4.setArguments(bundle);
             manager.beginTransaction()
-                    .replace(R.id.fragment_container, question3)
+                    .replace(R.id.fragment_container, question4)
                     .commit();
         });
         A3.setOnClickListener(v -> {
@@ -87,12 +80,12 @@ public class EmergencyQuestions extends Fragment {
             anw1 = tvAnswers.getText().toString();
 
             call.add(anw1);
-            bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
-            Fragment question2 = new EmergencyQuestion2();
-            question2.setArguments(bundle);
+            Fragment question4 = new EmergencyQuestion4();
+            question4.setArguments(bundle);
             manager.beginTransaction()
-                    .replace(R.id.fragment_container, question2)
+                    .replace(R.id.fragment_container, question4)
                     .commit();
         });
         A4.setOnClickListener(v -> {
@@ -100,29 +93,12 @@ public class EmergencyQuestions extends Fragment {
             anw1 = tvAnswers.getText().toString();
 
             call.add(anw1);
-            bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
-            Fragment question3 = new EmergencyQuestion3();
-            question3.setArguments(bundle);
+            Fragment question4 = new EmergencyQuestion4();
+            question4.setArguments(bundle);
             manager.beginTransaction()
-                    .replace(R.id.fragment_container, question3)
-                    .commit();
-        });
-        A5.setOnClickListener(v -> {
-            A5.setVisibility(View.INVISIBLE);
-            anotherSituation.setVisibility(View.VISIBLE);
-            confirmSituation.setVisibility(View.VISIBLE);
-        });
-
-        confirmSituation.setOnClickListener(v -> {
-            anw1 = anotherSituation.getText().toString();
-            call.add(anw1);
-            bundle.putStringArrayList("call", call);
-
-            Fragment question3 = new EmergencyQuestion3();
-            question3.setArguments(bundle);
-            manager.beginTransaction()
-                    .replace(R.id.fragment_container, question3)
+                    .replace(R.id.fragment_container, question4)
                     .commit();
         });
 
@@ -132,5 +108,6 @@ public class EmergencyQuestions extends Fragment {
                     .replace(R.id.fragment_container, startingPage)
                     .commit();
         });
+
     }
 }

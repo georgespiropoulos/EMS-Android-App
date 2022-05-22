@@ -45,7 +45,7 @@
                 app:layout_constraintTop_toTopOf="@+id/hospitalClinics0" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/hospital_location"
                 android:layout_width="25dp"
                 android:layout_height="19dp"
                 android:layout_marginBottom="5dp"

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/landingPage">
+
+    <fragment
+        android:id="@+id/landingPageButton"
+        android:name="ihuiee.webservices.ems_android_app.LandingPageButton"
+        android:label="landing_page_button"
+        tools:layout="@layout/landing_page_button" >
+        <action
+            android:id="@+id/action_landingPageButton_to_authLogin"
+            app:destination="@id/authLogin" />
+    </fragment>
+    <fragment
+        android:id="@+id/startingPageContent"
+        android:name="ihuiee.webservices.ems_android_app.StartingPageContent"
+        android:label="fragment_starting_page_content"
+        tools:layout="@layout/fragment_starting_page_content" />
+    <fragment
+        android:id="@+id/landingPage"
+        android:name="ihuiee.webservices.ems_android_app.LandingPage"
+        android:label="landing_page"
+        tools:layout="@layout/landing_page" >
+        <action
+            android:id="@+id/action_landingPage_to_landingPageButton"
+            app:destination="@id/landingPageButton" />
+    </fragment>
+    <fragment
+        android:id="@+id/authLogin"
+        android:name="ihuiee.webservices.ems_android_app.AuthLogin"
+        android:label="fragment_auth_login"
+        tools:layout="@layout/fragment_auth_login" >
+        <action
+            android:id="@+id/action_authLogin_to_startingPageContent"
+            app:destination="@id/startingPageContent" />
+    </fragment>
+</navigation>
