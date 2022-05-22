@@ -13,8 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EmergencyQuestion4 extends Fragment {
 
@@ -37,7 +36,8 @@ public class EmergencyQuestion4 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         assert getArguments() != null;
-        ArrayList<String> call = getArguments().getStringArrayList("call");
+        //ArrayList<String> call = getArguments().getStringArrayList("call");
+        HashMap<String, String> call = (HashMap<String, String>) getArguments().getSerializable("call");
         FragmentManager manager = getParentFragmentManager();
 
         A1 = view.findViewById(R.id.answer_1);
@@ -48,7 +48,9 @@ public class EmergencyQuestion4 extends Fragment {
             tvAnswers = view.findViewById(R.id.q1a1);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
+            //call.add(anw1);
+            call.put("Τέταρτη Απάντηση", anw1);
+            //bundle.putSerializable("call", call);
             bundle.putSerializable("call", call);
 
             Fragment question5 = new EmergencyQuestion5();
@@ -61,7 +63,9 @@ public class EmergencyQuestion4 extends Fragment {
             tvAnswers = view.findViewById(R.id.q2a2);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
+            //call.add(anw1);
+            call.put("Τέταρτη Απάντηση", anw1);
+            //bundle.putSerializable("call", call);
             bundle.putSerializable("call", call);
 
             Fragment question5 = new EmergencyQuestion5();

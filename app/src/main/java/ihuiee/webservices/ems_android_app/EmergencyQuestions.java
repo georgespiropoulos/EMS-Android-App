@@ -14,10 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EmergencyQuestions extends Fragment {
 
@@ -32,8 +29,8 @@ public class EmergencyQuestions extends Fragment {
     TextView tvAnswers;
     String anw1;
     Bundle bundle = new Bundle();
-    ArrayList<String> call = new ArrayList<>();
-
+    //ArrayList<String> call = new ArrayList<>();
+    HashMap<String, String> call = new HashMap<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,8 +57,10 @@ public class EmergencyQuestions extends Fragment {
             tvAnswers = view.findViewById(R.id.q1a1);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
-            bundle.putStringArrayList("call", call);
+            //call.add(anw1);
+            call.put("Πρώτη Απάντηση", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
             Fragment question3 = new EmergencyQuestion3();
             question3.setArguments(bundle);
@@ -73,8 +72,10 @@ public class EmergencyQuestions extends Fragment {
             tvAnswers = view.findViewById(R.id.q2a2);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
-            bundle.putStringArrayList("call", call);
+            //call.add(anw1);
+            call.put("Πρώτη Απάντηση", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
             Fragment question3 = new EmergencyQuestion3();
             question3.setArguments(bundle);
@@ -86,8 +87,10 @@ public class EmergencyQuestions extends Fragment {
             tvAnswers = view.findViewById(R.id.q3a3);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
-            bundle.putStringArrayList("call", call);
+            //call.add(anw1);
+            call.put("Πρώτη Απάντηση", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
             Fragment question2 = new EmergencyQuestion2();
             question2.setArguments(bundle);
@@ -99,8 +102,10 @@ public class EmergencyQuestions extends Fragment {
             tvAnswers = view.findViewById(R.id.q4a4);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
-            bundle.putStringArrayList("call", call);
+            //call.add(anw1);
+            call.put("Πρώτη Απάντηση", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
             Fragment question3 = new EmergencyQuestion3();
             question3.setArguments(bundle);
@@ -115,9 +120,10 @@ public class EmergencyQuestions extends Fragment {
         });
 
         confirmSituation.setOnClickListener(v -> {
-            anw1 = anotherSituation.getText().toString();
-            call.add(anw1);
-            bundle.putStringArrayList("call", call);
+            //call.add(anw1);
+            call.put("Πρώτη Απάντηση", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
             Fragment question3 = new EmergencyQuestion3();
             question3.setArguments(bundle);

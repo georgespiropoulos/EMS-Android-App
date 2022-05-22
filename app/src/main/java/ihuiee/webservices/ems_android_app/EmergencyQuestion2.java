@@ -1,21 +1,19 @@
 package ihuiee.webservices.ems_android_app;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import java.util.HashMap;
 
 public class EmergencyQuestion2 extends Fragment {
 
@@ -26,7 +24,7 @@ public class EmergencyQuestion2 extends Fragment {
     TextView tvAnswers;
     String anw2;
     Bundle bundle = new Bundle();
-    ArrayList<String> call;
+    //ArrayList<String> call;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,7 +36,8 @@ public class EmergencyQuestion2 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        assert getArguments() != null;
+        HashMap<String, String> call = (HashMap<String, String>) getArguments().getSerializable("call");
 
         FragmentManager manager = getParentFragmentManager();
 
@@ -51,8 +50,10 @@ public class EmergencyQuestion2 extends Fragment {
             tvAnswers = view.findViewById(R.id.q1a1);
             anw2 = tvAnswers.getText().toString();
 
-            call.add(anw2);
-            bundle.putStringArrayList("call", call);
+            //call.add(anw2);
+            call.put("Δεύτερη απάντηση", anw2);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
             Fragment question3 = new EmergencyQuestion3();
             question3.setArguments(bundle);
@@ -65,8 +66,10 @@ public class EmergencyQuestion2 extends Fragment {
             tvAnswers = view.findViewById(R.id.q1a1);
             anw2 = tvAnswers.getText().toString();
 
-            call.add(anw2);
-            bundle.putStringArrayList("call", call);
+            //call.add(anw2);
+            call.put("Δεύτερη απάντηση", anw2);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
             Fragment question3 = new EmergencyQuestion3();
             question3.setArguments(bundle);
@@ -79,8 +82,10 @@ public class EmergencyQuestion2 extends Fragment {
             tvAnswers = view.findViewById(R.id.q1a1);
             anw2 = tvAnswers.getText().toString();
 
-            call.add(anw2);
-            bundle.putStringArrayList("call", call);
+            //call.add(anw2);
+            call.put("Δεύτερη απάντηση", anw2);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
 
             Fragment question3 = new EmergencyQuestion3();
             question3.setArguments(bundle);

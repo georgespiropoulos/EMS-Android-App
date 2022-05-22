@@ -11,11 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EmergencyQuestion3 extends Fragment {
 
@@ -27,6 +25,7 @@ public class EmergencyQuestion3 extends Fragment {
     TextView tvAnswers;
     String anw1;
     Bundle bundle = new Bundle();
+    HashMap<String, String> call = new HashMap<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,7 +39,8 @@ public class EmergencyQuestion3 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         assert getArguments() != null;
-        ArrayList<String> call = getArguments().getStringArrayList("call");
+        //ArrayList<String> call = getArguments().getStringArrayList("call");
+        call = (HashMap<String, String>) getArguments().getSerializable("call");
         FragmentManager manager = getParentFragmentManager();
 
         A1 = view.findViewById(R.id.answer_1);
@@ -53,7 +53,9 @@ public class EmergencyQuestion3 extends Fragment {
             tvAnswers = view.findViewById(R.id.q1a1);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
+            //call.add(anw1);
+            call.put("Τρίτη απάντηση", anw1);
+            //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
             Fragment question4 = new EmergencyQuestion4();
@@ -66,7 +68,9 @@ public class EmergencyQuestion3 extends Fragment {
             tvAnswers = view.findViewById(R.id.q2a2);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
+            //call.add(anw1);
+            call.put("Τρίτη απάντηση", anw1);
+            //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
             Fragment question4 = new EmergencyQuestion4();
@@ -79,7 +83,9 @@ public class EmergencyQuestion3 extends Fragment {
             tvAnswers = view.findViewById(R.id.q3a3);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
+            //call.add(anw1);
+            call.put("Τρίτη απάντηση", anw1);
+            //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
             Fragment question4 = new EmergencyQuestion4();
@@ -92,7 +98,9 @@ public class EmergencyQuestion3 extends Fragment {
             tvAnswers = view.findViewById(R.id.q4a4);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
+            //call.add(anw1);
+            call.put("Τρίτη απάντηση", anw1);
+            //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
             Fragment question4 = new EmergencyQuestion4();

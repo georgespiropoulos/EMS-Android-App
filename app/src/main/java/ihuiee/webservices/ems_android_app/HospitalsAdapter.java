@@ -5,31 +5,26 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
-
-import ihuiee.webservices.DB.AppDatabase;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import ihuiee.webservices.DB.Hospitals;
 
 public class HospitalsAdapter extends RecyclerView.Adapter<HospitalsAdapter.ViewHolder> {
     List<Hospitals> allHospitals;
-    private Context context;
+    private final Context context;
 
     public HospitalsAdapter(Context context, List<Hospitals> hospitals) {
         this.context = context;
@@ -71,12 +66,21 @@ public class HospitalsAdapter extends RecyclerView.Adapter<HospitalsAdapter.View
             // geo:0,0?q=
             Geocoder geocoder = new Geocoder(context);
             try {
+                ExecutorService exec = Executors.newSingleThreadExecutor();
+                Handler handler = new Handler(Looper.getMainLooper());
+
                 List<Address> geoResults = geocoder.getFromLocationName(allHospitals.get(position).hospitalAddress, 1);
                 Address addr = geoResults.get(0);
                 String uri = String.format(Locale.ENGLISH, "geo:%f,%f", addr.getLatitude(), addr.getLongitude());
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                 Intent chooser = Intent.createChooser(intent, "Launch Maps");
-                context.startActivity(chooser);
+
+                exec.execute(() -> {
+                    context.startActivity(chooser);
+                    handler.post(() -> {
+
+                    });
+                });
 
             } catch (IOException e) {
                 e.printStackTrace();

@@ -1,11 +1,7 @@
 package ihuiee.webservices.ems_android_app;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +9,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EmergencyQuestion5 extends Fragment {
 
@@ -37,8 +38,8 @@ public class EmergencyQuestion5 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         assert getArguments() != null;
-        ArrayList<String> call = getArguments().getStringArrayList("call");
-        System.out.println(call.toString());
+        //ArrayList<String> call = getArguments().getStringArrayList("call");
+        HashMap<String, String> call = (HashMap<String, String>) getArguments().getSerializable("call");
         FragmentManager manager = getParentFragmentManager();
 
         A1 = view.findViewById(R.id.answer_1);
@@ -49,8 +50,11 @@ public class EmergencyQuestion5 extends Fragment {
             tvAnswers = view.findViewById(R.id.q1a1);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
-            fb.collection("Calls").add(call);
+            //call.add(anw1);
+            call.put("Πέμπτη Απάντηση", anw1);
+            fb.collection("Calls")
+                    .add(call)
+                    .addOnSuccessListener(s -> Log.d("Firestore", "Success with ID :" + getId())).addOnFailureListener(f -> Log.d("Firestore", "Failure"));
 
             Fragment thanksPage = new ThankYouPage();
             manager.beginTransaction()
@@ -62,8 +66,11 @@ public class EmergencyQuestion5 extends Fragment {
             tvAnswers = view.findViewById(R.id.q2a2);
             anw1 = tvAnswers.getText().toString();
 
-            call.add(anw1);
-            fb.collection("Calls").add(call);
+            //call.add(anw1);
+            call.put("Πέμπτη Απάντηση", anw1);
+            fb.collection("Calls")
+                    .add(call)
+                    .addOnSuccessListener(s -> Log.d("Firestore", "Success with ID :" + getId())).addOnFailureListener(f -> Log.d("Firestore", "Failure"));
 
             Fragment thanksPage = new ThankYouPage();
             manager.beginTransaction()
