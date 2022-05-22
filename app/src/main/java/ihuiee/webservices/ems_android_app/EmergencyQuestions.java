@@ -58,7 +58,7 @@ public class EmergencyQuestions extends Fragment {
             anw1 = tvAnswers.getText().toString();
 
             //call.add(anw1);
-            call.put("Πρώτη Απάντηση", anw1);
+            call.put("Περιστατικό", anw1);
             //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
@@ -73,7 +73,7 @@ public class EmergencyQuestions extends Fragment {
             anw1 = tvAnswers.getText().toString();
 
             //call.add(anw1);
-            call.put("Πρώτη Απάντηση", anw1);
+            call.put("Περιστατικό", anw1);
             //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
@@ -88,7 +88,7 @@ public class EmergencyQuestions extends Fragment {
             anw1 = tvAnswers.getText().toString();
 
             //call.add(anw1);
-            call.put("Πρώτη Απάντηση", anw1);
+            call.put("Περιστατικό", anw1);
             //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
@@ -103,7 +103,7 @@ public class EmergencyQuestions extends Fragment {
             anw1 = tvAnswers.getText().toString();
 
             //call.add(anw1);
-            call.put("Πρώτη Απάντηση", anw1);
+            call.put("Περιστατικό", anw1);
             //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
@@ -121,7 +121,7 @@ public class EmergencyQuestions extends Fragment {
 
         confirmSituation.setOnClickListener(v -> {
             //call.add(anw1);
-            call.put("Πρώτη Απάντηση", anw1);
+            call.put("Περιστατικό", anw1);
             //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 

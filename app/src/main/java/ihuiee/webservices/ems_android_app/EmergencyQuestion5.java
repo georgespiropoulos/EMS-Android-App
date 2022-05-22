@@ -51,7 +51,7 @@ public class EmergencyQuestion5 extends Fragment {
             anw1 = tvAnswers.getText().toString();
 
             //call.add(anw1);
-            call.put("Πέμπτη Απάντηση", anw1);
+            call.put("Αναπνοή", anw1);
             fb.collection("Calls")
                     .add(call)
                     .addOnSuccessListener(s -> Log.d("Firestore", "Success with ID :" + getId())).addOnFailureListener(f -> Log.d("Firestore", "Failure"));
@@ -67,7 +67,7 @@ public class EmergencyQuestion5 extends Fragment {
             anw1 = tvAnswers.getText().toString();
 
             //call.add(anw1);
-            call.put("Πέμπτη Απάντηση", anw1);
+            call.put("Αναπνοή", anw1);
             fb.collection("Calls")
                     .add(call)
                     .addOnSuccessListener(s -> Log.d("Firestore", "Success with ID :" + getId())).addOnFailureListener(f -> Log.d("Firestore", "Failure"));

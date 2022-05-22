@@ -51,14 +51,14 @@ public class EmergencyQuestion2 extends Fragment {
             anw2 = tvAnswers.getText().toString();
 
             //call.add(anw2);
-            call.put("Δεύτερη απάντηση", anw2);
+            call.put("Μήνας Εγκυμοσύνης", anw2);
             //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
-            Fragment question3 = new EmergencyQuestion3();
-            question3.setArguments(bundle);
+            Fragment question4 = new EmergencyQuestion4();
+            question4.setArguments(bundle);
             manager.beginTransaction()
-                    .replace(R.id.fragment_container, question3)
+                    .replace(R.id.fragment_container, question4)
                     .commit();
         });
 
@@ -67,14 +67,14 @@ public class EmergencyQuestion2 extends Fragment {
             anw2 = tvAnswers.getText().toString();
 
             //call.add(anw2);
-            call.put("Δεύτερη απάντηση", anw2);
+            call.put("Μήνας Εγκυμοσύνης", anw2);
             //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
-            Fragment question3 = new EmergencyQuestion3();
-            question3.setArguments(bundle);
+            Fragment question4 = new EmergencyQuestion4();
+            question4.setArguments(bundle);
             manager.beginTransaction()
-                    .replace(R.id.fragment_container, question3)
+                    .replace(R.id.fragment_container, question4)
                     .commit();
         });
 
@@ -83,14 +83,14 @@ public class EmergencyQuestion2 extends Fragment {
             anw2 = tvAnswers.getText().toString();
 
             //call.add(anw2);
-            call.put("Δεύτερη απάντηση", anw2);
+            call.put("Μήνας Εγκυμοσύνης", anw2);
             //bundle.putStringArrayList("call", call);
             bundle.putSerializable("call", call);
 
-            Fragment question3 = new EmergencyQuestion3();
-            question3.setArguments(bundle);
+            Fragment question4 = new EmergencyQuestion4();
+            question4.setArguments(bundle);
             manager.beginTransaction()
-                    .replace(R.id.fragment_container, question3)
+                    .replace(R.id.fragment_container, question4)
                     .commit();
         });
 
