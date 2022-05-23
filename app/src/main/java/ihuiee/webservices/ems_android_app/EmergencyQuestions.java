@@ -130,6 +130,7 @@ public class EmergencyQuestions extends Fragment {
         });
 
         confirmSituation.setOnClickListener(v -> {
+            anw1 = anotherSituation.getText().toString();
             //call.add(anw1);
             call.put("Περιστατικό", anw1);
             //bundle.putStringArrayList("call", call);
