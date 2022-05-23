@@ -56,7 +56,12 @@ public class StartingPageContent extends Fragment {
             t1.join();
             //listOfHospitals = tCrawler.getListOfHospitals();
             System.out.println(listOfHospitals);
-            adapter = new HospitalsAdapter(getContext(), listOfHospitals);
+            List<Hospitals> fixedList = new ArrayList<>();
+            for (Hospitals item : listOfHospitals) {
+                if (!fixedList.contains(item))
+                    fixedList.add(item);
+            }
+            adapter = new HospitalsAdapter(getContext(), fixedList);
         } catch (Exception e) {
             e.printStackTrace();
         }
