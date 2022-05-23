@@ -23,6 +23,8 @@ public class EmergencyQuestions extends Fragment {
     Button A3;
     Button A4;
     Button A5;
+    TextView A5text;
+    TextView A4text;
     ImageButton backBtn;
     ImageButton confirmSituation;
     EditText anotherSituation;
@@ -49,6 +51,8 @@ public class EmergencyQuestions extends Fragment {
         A3 = view.findViewById(R.id.answer_3);
         A4 = view.findViewById(R.id.answer_4);
         A5 = view.findViewById(R.id.answer_5);
+        A5text = view.findViewById(R.id.q5a5);
+        A4text = view.findViewById(R.id.q4a4);
         anotherSituation = view.findViewById(R.id.another_situation);
         backBtn = view.findViewById(R.id.back_btn);
         confirmSituation = view.findViewById(R.id.confirm_situation);
@@ -114,7 +118,13 @@ public class EmergencyQuestions extends Fragment {
                     .commit();
         });
         A5.setOnClickListener(v -> {
+            A1.setEnabled(false);
+            A2.setEnabled(false);
+            A3.setEnabled(false);
+            A4.setVisibility(View.INVISIBLE);
+            A4text.setVisibility(View.INVISIBLE);
             A5.setVisibility(View.INVISIBLE);
+            A5text.setVisibility(View.INVISIBLE);
             anotherSituation.setVisibility(View.VISIBLE);
             confirmSituation.setVisibility(View.VISIBLE);
         });

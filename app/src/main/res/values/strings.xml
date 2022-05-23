@@ -48,10 +48,10 @@
     <string name="two">Δύο</string>
     <string name="more">Περισσότερα</string>
     <string name="three">Τρία</string>
-    <string name="consciousness">Έχουν/ει αισθήσεις</string>
+    <string name="consciousness">Έχουν/ει αισθήσεις;</string>
     <string name="No">Όχι</string>
     <string name="Yes">Ναι</string>
-    <string name="breath">Απαπνέουν/ει</string>
+    <string name="breath">Αναπνέουν/ει</string>
     <string name="another">Άλλο</string>
     <string name="car_accident">Τροχαίο</string>
     <string name="human_accident">Ακροτηριασμός</string>
