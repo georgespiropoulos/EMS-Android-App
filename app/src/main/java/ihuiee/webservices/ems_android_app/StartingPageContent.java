@@ -41,12 +41,12 @@ public class StartingPageContent extends Fragment {
         RecyclerView rc = view.findViewById(R.id.hospitalList);
         rc.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        try {
-            adapter = new HospitalsAdapter(getContext(), new Content().execute().get());
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        rc.setAdapter(adapter);
+//        try {
+//            adapter = new HospitalsAdapter(getContext(), new Content().execute().get());
+//        } catch (ExecutionException | InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        rc.setAdapter(adapter);
 
         ImageButton emergencyBtn = view.findViewById(R.id.emergencyButton);
         emergencyBtn.setOnClickListener(v -> {
@@ -62,27 +62,27 @@ public class StartingPageContent extends Fragment {
     }
 
 
-    @SuppressLint("StaticFieldLeak")
-    private class Content extends AsyncTask<Void, Void, List<Hospitals>> {
-
-        @Override
-        protected List<Hospitals> doInBackground(Void... voids) {
-            Crawler cwr = new Crawler("thessalonikh");
-
-            List<Hospitals> hospitalsFromCwr = cwr.getHospitalsFromCrawler();
-
-            Log.d("Crawler", "Hospitals and Clinics");
-
-            return hospitalsFromCwr;
-        }
-
-        @SuppressLint("NotifyDataSetChanged")
-        @Override
-        protected void onPostExecute(List<Hospitals> hospitals) {
-            super.onPostExecute(hospitals);
-            adapter.allHospitals = hospitals;
-            adapter.notifyDataSetChanged();
-        }
-    }
+//    @SuppressLint("StaticFieldLeak")
+//    private class Content extends AsyncTask<Void, Void, List<Hospitals>> {
+//
+//        @Override
+//        protected List<Hospitals> doInBackground(Void... voids) {
+//            Crawler cwr = new Crawler("thessalonikh");
+//
+//            List<Hospitals> hospitalsFromCwr = cwr.getHospitalsFromCrawler();
+//
+//            Log.d("Crawler", "Hospitals and Clinics");
+//
+//            return hospitalsFromCwr;
+//        }
+//
+//        @SuppressLint("NotifyDataSetChanged")
+//        @Override
+//        protected void onPostExecute(List<Hospitals> hospitals) {
+//            super.onPostExecute(hospitals);
+//            adapter.allHospitals = hospitals;
+//            adapter.notifyDataSetChanged();
+//        }
+//    }
 }
 
