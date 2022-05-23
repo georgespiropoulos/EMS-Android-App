@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmergencyQuestion3">
+
+    <ImageView
+        android:id="@+id/topLineQuestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:contentDescription="@string/string_horizontal_line"
+        android:src="@drawable/horizontal_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bottomLineQuestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:contentDescription="@string/string_horizontal_line"
+        android:src="@drawable/horizontal_line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/round_corners_questions"
+        android:fontFamily="@font/roboto_bold"
+        android:padding="20dp"
+        android:paddingStart="60dp"
+        android:paddingEnd="60dp"
+        android:text="@string/people_injured"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topLineQuestions" />
+
+    <Button
+        android:id="@+id/answer_1"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/circle_button_blue"
+        android:backgroundTint="@color/blue"
+        android:text="@string/_1"
+        app:layout_constraintBottom_toTopOf="@+id/answer_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
+
+    <TextView
+        android:id="@+id/q1a1"
+        android:layout_width="49dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="180dp"
+        android:background="@color/grey"
+        android:fontFamily="@font/roboto_bold"
+        android:padding="5dp"
+        android:text="@string/one"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintStart_toEndOf="@+id/answer_1"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
+
+    <Button
+        android:id="@+id/answer_4"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/circle_button_blue"
+        android:backgroundTint="@color/blue"
+        android:text="@string/_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer_3" />
+
+    <Button
+        android:id="@+id/answer_3"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/circle_button_blue"
+        android:backgroundTint="@color/blue"
+        android:text="@string/_3"
+        app:layout_constraintBottom_toTopOf="@+id/answer_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer_2" />
+
+    <Button
+        android:id="@+id/answer_2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/circle_button_blue"
+        android:backgroundTint="@color/blue"
+        android:text="@string/_2"
+        app:layout_constraintBottom_toTopOf="@+id/answer_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer_1" />
+
+    <TextView
+        android:id="@+id/q2a2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@color/grey"
+        android:fontFamily="@font/roboto_bold"
+        android:padding="5dp"
+        android:text="@string/two"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toEndOf="@+id/answer_2"
+        app:layout_constraintTop_toBottomOf="@+id/q1a1" />
+
+    <TextView
+        android:id="@+id/q4a4"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/grey"
+        android:fontFamily="@font/roboto_bold"
+        android:padding="5dp"
+        android:text="@string/more"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toEndOf="@+id/answer_4"
+        app:layout_constraintTop_toBottomOf="@+id/q3a3" />
+
+    <TextView
+        android:id="@+id/q3a3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@color/grey"
+        android:fontFamily="@font/roboto_bold"
+        android:padding="5dp"
+        android:text="@string/three"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toEndOf="@+id/answer_3"
+        app:layout_constraintTop_toBottomOf="@+id/q2a2" />
+
+    <ImageButton
+        android:id="@+id/audio_answer"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/circle_button_blue"
+        android:src="@drawable/ic_baseline_mic_24"
+        android:contentDescription="@string/speak"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLineQuestions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/q4a4"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/circle_button_grey"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:contentDescription="@string/back"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLineQuestions"
+        app:layout_constraintEnd_toStartOf="@+id/audio_answer"
+        app:layout_constraintHorizontal_bias="0.649"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer_4"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

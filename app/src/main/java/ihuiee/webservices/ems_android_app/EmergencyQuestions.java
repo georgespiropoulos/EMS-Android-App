@@ -2,63 +2,141 @@ package ihuiee.webservices.ems_android_app;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import java.util.HashMap;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link EmergencyQuestions#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class EmergencyQuestions extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public EmergencyQuestions() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment EmergencyQuestions.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static EmergencyQuestions newInstance(String param1, String param2) {
-        EmergencyQuestions fragment = new EmergencyQuestions();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    Button A1;
+    Button A2;
+    Button A3;
+    Button A4;
+    Button A5;
+    ImageButton backBtn;
+    ImageButton confirmSituation;
+    EditText anotherSituation;
+    TextView tvAnswers;
+    String anw1;
+    Bundle bundle = new Bundle();
+    //ArrayList<String> call = new ArrayList<>();
+    HashMap<String, String> call = new HashMap<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_emergency_questions, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        FragmentManager manager = getParentFragmentManager();
+
+        A1 = view.findViewById(R.id.answer_1);
+        A2 = view.findViewById(R.id.answer_2);
+        A3 = view.findViewById(R.id.answer_3);
+        A4 = view.findViewById(R.id.answer_4);
+        A5 = view.findViewById(R.id.answer_5);
+        anotherSituation = view.findViewById(R.id.another_situation);
+        backBtn = view.findViewById(R.id.back_btn);
+        confirmSituation = view.findViewById(R.id.confirm_situation);
+
+        A1.setOnClickListener(v -> {
+            tvAnswers = view.findViewById(R.id.q1a1);
+            anw1 = tvAnswers.getText().toString();
+
+            //call.add(anw1);
+            call.put("Περιστατικό", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
+
+            Fragment question3 = new EmergencyQuestion3();
+            question3.setArguments(bundle);
+            manager.beginTransaction()
+                    .replace(R.id.fragment_container, question3)
+                    .commit();
+        });
+        A2.setOnClickListener(v -> {
+            tvAnswers = view.findViewById(R.id.q2a2);
+            anw1 = tvAnswers.getText().toString();
+
+            //call.add(anw1);
+            call.put("Περιστατικό", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
+
+            Fragment question3 = new EmergencyQuestion3();
+            question3.setArguments(bundle);
+            manager.beginTransaction()
+                    .replace(R.id.fragment_container, question3)
+                    .commit();
+        });
+        A3.setOnClickListener(v -> {
+            tvAnswers = view.findViewById(R.id.q3a3);
+            anw1 = tvAnswers.getText().toString();
+
+            //call.add(anw1);
+            call.put("Περιστατικό", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
+
+            Fragment question2 = new EmergencyQuestion2();
+            question2.setArguments(bundle);
+            manager.beginTransaction()
+                    .replace(R.id.fragment_container, question2)
+                    .commit();
+        });
+        A4.setOnClickListener(v -> {
+            tvAnswers = view.findViewById(R.id.q4a4);
+            anw1 = tvAnswers.getText().toString();
+
+            //call.add(anw1);
+            call.put("Περιστατικό", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
+
+            Fragment question3 = new EmergencyQuestion3();
+            question3.setArguments(bundle);
+            manager.beginTransaction()
+                    .replace(R.id.fragment_container, question3)
+                    .commit();
+        });
+        A5.setOnClickListener(v -> {
+            A5.setVisibility(View.INVISIBLE);
+            anotherSituation.setVisibility(View.VISIBLE);
+            confirmSituation.setVisibility(View.VISIBLE);
+        });
+
+        confirmSituation.setOnClickListener(v -> {
+            //call.add(anw1);
+            call.put("Περιστατικό", anw1);
+            //bundle.putStringArrayList("call", call);
+            bundle.putSerializable("call", call);
+
+            Fragment question3 = new EmergencyQuestion3();
+            question3.setArguments(bundle);
+            manager.beginTransaction()
+                    .replace(R.id.fragment_container, question3)
+                    .commit();
+        });
+
+        backBtn.setOnClickListener(v -> {
+            Fragment startingPage = new StartingPage();
+            manager.beginTransaction()
+                    .replace(R.id.fragment_container, startingPage)
+                    .commit();
+        });
     }
 }
