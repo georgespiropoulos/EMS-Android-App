@@ -40,10 +40,10 @@ public abstract class AppDatabase extends RoomDatabase {
             databaseWriterExecutor.execute(() -> {
                 HospitalsDAO dao = instance.hospitalsDao();
 
-                Crawler cwl = new Crawler("Θεσσαλονίκη");
-                for (Hospitals hospital : cwl.getHospitalsFromCrawler()) {
-                    dao.insertAll(hospital);
-                }
+//                Crawler cwl = new Crawler("Θεσσαλονίκη");
+//                for (Hospitals hospital : cwl.getHospitalsFromCrawler()) {
+//                    dao.insertAll(hospital);
+//                }
             });
         }
     };
